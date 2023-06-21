@@ -1,24 +1,22 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend;
 
-use Illuminate\Http\Request;
-use App\Models\Problem;
+use App\Http\Controllers\Controller;
 use App\Models\Department;
 use App\Models\All_User;
 use Carbon\Carbon;
 
+use Illuminate\Http\Request;
 
-
-class fontendController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $all_problem=Problem::all();
-        return view('fontend.problem_list',compact('all_problem'));
+
     }
 
     /**
@@ -26,9 +24,8 @@ class fontendController extends Controller
      */
     public function create()
     {
-        $all_department=Department::all();
-        $all_user=All_User::all();
-        return view('fontend.Add_problem',compact('all_department','all_user'));
+        $All_Department=Department::All();
+        return view('Admin_Upload.user_info.add',compact('All_Department'));
     }
 
     /**
@@ -36,22 +33,12 @@ class fontendController extends Controller
      */
     public function store(Request $request)
     {
-         $request->validate([
-            "user_id"=>'required',
-            "name"=>'required',
-            "designation"=>'required',
-            "department"=>'required',
-            "room_number"=>'required',
-            "problem"=>'required',
-
-         ]);
-
-         Problem::insert($request->except('_token') + [
+        All_User::insert($request->except('_token') + [
 
             'created_at'=>Carbon::now(),
             ]);
 
-            return back()->with('success','Data saved successfully');
+            return back()->with('success','User Information Succesfully uploaded successfully');
     }
 
     /**
@@ -59,8 +46,7 @@ class fontendController extends Controller
      */
     public function show(string $id)
     {
-        // $get_data=All_information::find($id);
-        // return view('fontend.Add_problem',compact('get_data'));
+        //
     }
 
     /**
@@ -86,5 +72,4 @@ class fontendController extends Controller
     {
         //
     }
-
 }

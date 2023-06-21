@@ -33,7 +33,7 @@
   <link href="{{asset('backend/assets/css/semi-dark.css')}}" rel="stylesheet" />
   <link href="{{asset('backend/assets/css/header-colors.css')}}" rel="stylesheet" />
 
-  <title>Skodash - Bootstrap 5 Admin Template</title>
+  <title>ICT Information M</title>
 </head>
 
 <body>
@@ -173,12 +173,11 @@
               <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="bi bi-house-door"></i>
                 </div>
-                <div class="menu-title">Dashboard</div>
+                <div class="menu-title">Set Up Managment</div>
               </a>
               <ul>
-                <li> <a href="{{ route('admin.create') }}"><i class="bi bi-arrow-right-short"></i>Upload Information</a>
+                <li> <a href="{{ route('Setup.create') }}"><i class="bi bi-arrow-right-short"></i>Department</a>
                 </li>
-                <li> <a href="{{ route('admin.index') }}"><i class="bi bi-arrow-right-short"></i>Information List</a>
 
               </ul>
             </li>
@@ -196,6 +195,24 @@
 
               </ul>
             </li>
+            <li>
+                <a href="javascript:;" class="has-arrow">
+                  <div class="parent-icon"><i class="bi bi-grid"></i>
+                  </div>
+                  <div class="menu-title">User Information Upload</div>
+                </a>
+                <ul>
+                  <li> <a href="{{ route('UserUpoload.create') }}"><i class="bi bi-arrow-right-short"></i>User add</a>
+                  </li>
+                  <li> <a href=""><i class="bi bi-arrow-right-short"></i>Computer Information</a>
+                    <li> <a href=""><i class="bi bi-arrow-right-short"></i>Printer Information</a>
+                        <li> <a href=""><i class="bi bi-arrow-right-short"></i>Scanner Information</a>
+                  </li>
+
+                  </li>
+
+                </ul>
+              </li>
         </ul>
           <!--end navigation-->
        </aside>

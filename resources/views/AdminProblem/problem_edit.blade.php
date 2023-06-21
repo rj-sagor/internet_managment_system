@@ -71,7 +71,7 @@
                 </div>
             </div>
             <hr>
-             <div class="col-12">
+             <div class="dcol-12">
                 <button class="btn btn-primary" type="submit">Update </button>
             </div>
             {{-- form end --}}

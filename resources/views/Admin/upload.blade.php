@@ -156,6 +156,38 @@
                             @enderror
                             </div>
 
+                            <div class="col-md-4">
+                                <label for="validationCustom01" class="form-label">Price</label>
+                                <input type="text" class="form-control" id="validationCustom01"  name="price" >
+                                @error('price')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="validationCustom01" class="form-label">Tender Memo Number</label>
+                                <input type="text" class="form-control" id="validationCustom01"  name="tender_number" >
+                                @error('tender_number')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="validationCustom01" class="form-label">Tendar Date</label>
+                                <input type="date" class="form-control" id="validationCustom01"  name="tendar_date" >
+                                @error('tendar_date')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="validationCustom01" class="form-label">Comments</label>
+                                <textarea name="comments" id="" cols="35" rows="5"></textarea>
+                                @error('comments')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                            </div>
+
                         </div>
                     </div>
                 </div>

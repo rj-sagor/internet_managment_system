@@ -5,6 +5,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\fontendController;
 use App\Http\Controllers\ProblemListController;
+use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\Backend\SetUpController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +31,9 @@ Route::resource('admin',AdminController::class);
 Route::resource('userlogin', fontendController::class);
 // problem List controller
 Route::resource('admin_Problem_list', ProblemListController::class);
+Route::resource('UserUpoload', UserController::class);
+Route::resource('Setup', SetUpController::class);
+
 
 
 

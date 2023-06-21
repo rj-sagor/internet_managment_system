@@ -27,6 +27,10 @@ return new class extends Migration
             $table->string('ram');
             $table->string('os_system');
             $table->string('hdd_ssd');
+            $table->string('price')->nullable();
+            $table->string('tender_number')->nullable();
+            $table->string('tendar_date')->nullable();
+            $table->string('comments')->nullable();
             $table->timestamps();
         });
     }

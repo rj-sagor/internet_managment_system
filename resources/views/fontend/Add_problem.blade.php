@@ -9,6 +9,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 
+
+
     <title>Fontend</title>
 </head>
 <body>
@@ -68,7 +70,12 @@
                 <div class="row g-3">
                     <div class="col-md-6">
                         <label for="validationDefault01" class="form-label">User ID</label>
-                        <input type="text" class="form-control" id="validationDefault01" name="user_id" >
+                        <select class="js-example-basic-single form-control" name="user_id" data-placeholder="Choose category">
+                            <option label="Select user Id"></option>
+                            @foreach($all_user as $user)
+                            <option value="{{$user->id}}">{{$user->user_id}}</option>
+                            @endforeach
+                          </select>
                         @error('user_id')
                         <small class="text-danger">{{ $message }}</small>
                     @enderror
@@ -89,7 +96,12 @@
                     </div>
                     <div class="col-md-6">
                         <label for="validationDefault02" class="form-label">User Department</label>
-                        <input type="text" class="form-control" id="validationDefault02" name="department" >
+                        <select class="js-example-basic-single form-control" name="department" data-placeholder="Choose category">
+                            <option label="Select Department"></option>
+                            @foreach($all_department as $department)
+                            <option value="{{$department->id}}">{{$department->department_id}}</option>
+                            @endforeach
+                          </select>
                         @error('department')
                         <small class="text-danger">{{ $message }}</small>
                     @enderror
@@ -125,5 +137,12 @@
    </div>
 
 </footer>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('.js-example-basic-single').select2();
+});
+</script>
+
 </body>
 </html>
