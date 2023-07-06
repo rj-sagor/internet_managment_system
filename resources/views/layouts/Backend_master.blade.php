@@ -204,9 +204,25 @@
                 <ul>
                   <li> <a href="{{ route('UserUpoload.create') }}"><i class="bi bi-arrow-right-short"></i>User add</a>
                   </li>
-                  <li> <a href=""><i class="bi bi-arrow-right-short"></i>Computer Information</a>
-                    <li> <a href=""><i class="bi bi-arrow-right-short"></i>Printer Information</a>
-                        <li> <a href=""><i class="bi bi-arrow-right-short"></i>Scanner Information</a>
+                  <li> <a href="{{ route('computerinfo.create') }}"><i class="bi bi-arrow-right-short"></i>Computer Information</a>
+                  </li>
+                  <li> <a href="{{ route('printer.create') }}"><i class="bi bi-arrow-right-short"></i>Printer Information</a>
+                  </li>
+                  <li> <a href="{{ route('scanner.create') }}"><i class="bi bi-arrow-right-short"></i>Scanner Information</a>
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <a href="javascript:;" class="has-arrow">
+                  <div class="parent-icon"><i class="bi bi-grid"></i>
+                  </div>
+                  <div class="menu-title">User Status</div>
+                </a>
+                <ul>
+                  <li> <a href="{{ route('status') }}"><i class="bi bi-arrow-right-short"></i>Pending</a>
+                  </li>
+                  <li> <a href="{{ route('Approve_status') }}"><i class="bi bi-arrow-right-short"></i>Approve</a>
                   </li>
 
                   </li>

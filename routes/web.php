@@ -7,6 +7,9 @@ use App\Http\Controllers\fontendController;
 use App\Http\Controllers\ProblemListController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\SetUpController;
+use App\Http\Controllers\Backend\Computer_infoController;
+use App\Http\Controllers\printerController;
+use App\Http\Controllers\scannerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +36,12 @@ Route::resource('userlogin', fontendController::class);
 Route::resource('admin_Problem_list', ProblemListController::class);
 Route::resource('UserUpoload', UserController::class);
 Route::resource('Setup', SetUpController::class);
+Route::resource('computerinfo', Computer_infoController::class);
+Route::resource('printer', printerController::class);
+Route::resource('scanner', scannerController::class);
+Route::get('user/status', [Computer_infoController::class, 'Pending_status'])->name('status');
+Route::get('user/approve/status', [Computer_infoController::class, 'Approve_status'])->name('Approve_status');
+
 
 
 
