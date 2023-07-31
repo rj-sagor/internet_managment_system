@@ -23,7 +23,7 @@
                 <h6 class="mb-0 text-uppercase">Personal Information</h6>
             </div>
             <div>
-                <a class="btn btn-primary" href="">Information List</a>
+                <a class="btn btn-primary" href="{{ route('UserUpoload.index') }}">User List</a>
             </div>
             </div>
 
@@ -34,18 +34,18 @@
                         <div class="row g-3 needs-validation" novalidate="">
                             <div class="col-md-4">
                                 <label for="validationCustom01" class="form-label">Department</label>
-                                <select class="js-example-basic-single form-control" name="department_name" data-placeholder="Choose category">
+                                <select class="js-example-basic-single form-control" name="department_id" data-placeholder="Choose category">
                                     <option label="Select Department Name"></option>
                                     @foreach($All_Department as $department)
                                     <option value="{{$department->id}}">{{$department->department_name}}</option>
                                     @endforeach
                                   </select>
-                                @error('department_name')
+                                @error('department_id')
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
                             </div>
 
-                            <div class="col-md-4">
+                            {{-- <div class="col-md-4">
                                 <label for="validationCustom01" class="form-label">Department_ID</label>
                                 <select class="js-example-basic-single form-control" name="department_id" data-placeholder="Choose category">
                                     <option label="Select Department Id"></option>
@@ -56,10 +56,10 @@
                                 @error('department_id')
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
-                            </div>
+                            </div> --}}
 
                             <div class="col-md-4">
-                                <label for="validationCustom01" class="form-label">User Id</label>
+                                <label for="validationCustom01" class="form-label">E-Nothi Id</label>
                                 <input type="text" class="form-control" id="validationCustom01" name="user_id"  >
                                 @error('user_id')
                                 <small class="text-danger">{{ $message }}</small>
@@ -75,11 +75,15 @@
                             </div>
 
 
-
                             <div class="col-md-4">
                                 <label for="validationCustom01" class="form-label">Designation</label>
-                                <input type="text" class="form-control" id="validationCustom01"  name="designation" >
-                                @error('designation')
+                                <select class="js-example-basic-single form-control" name="designation_id" data-placeholder="Choose category">
+                                    <option label="Select Department Name"></option>
+                                    @foreach($All_desig as $designation)
+                                    <option value="{{$designation->id}}">{{$designation->designation_name}}</option>
+                                    @endforeach
+                                  </select>
+                                @error('designation_id')
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
                             </div>
@@ -99,7 +103,7 @@
             </div>
             <hr>
              <div class="col-12">
-                <button class="btn btn-primary" type="submit">সাবমিট </button>
+                <button class="btn btn-primary" >save </button>
             </div>
             {{-- form end --}}
 

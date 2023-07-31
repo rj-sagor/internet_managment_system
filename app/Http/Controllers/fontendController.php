@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Problem;
 use App\Models\Department;
 use App\Models\All_User;
+use App\Models\designation;
+use App\Models\ProblemList;
 use Carbon\Carbon;
 
 
@@ -27,8 +29,11 @@ class fontendController extends Controller
     public function create()
     {
         $all_department=Department::all();
+        $all_designation=designation::all();
+        $all_problem_list=ProblemList::all();
         $all_user=All_User::all();
-        return view('fontend.Add_problem',compact('all_department','all_user'));
+
+        return view('fontend.Add_problem',compact('all_department','all_user','all_designation','all_problem_list'));
     }
 
     /**
@@ -39,10 +44,10 @@ class fontendController extends Controller
          $request->validate([
             "user_id"=>'required',
             "name"=>'required',
-            "designation"=>'required',
-            "department"=>'required',
+            "designation_id"=>'required',
+            "department_id"=>'required',
             "room_number"=>'required',
-            "problem"=>'required',
+            "problem_id"=>'required',
 
          ]);
 

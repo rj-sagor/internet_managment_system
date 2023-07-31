@@ -5,7 +5,7 @@
     <!--breadcrumb-->
     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
     </div>
-   <form action="{{ route('printer.store') }}" method="POST">
+   <form action="{{ route('service.store') }}" method="POST">
     @csrf
     <div class="card">
         <div class="card-body">
@@ -13,28 +13,36 @@
                 <div class="row g-3 needs-validation" novalidate="">
                     <div class="col-md-4">
                         <label for="validationCustom01" class="form-label">User Name</label>
-                        <select class="js-example-basic-single form-control" name="user_id" data-placeholder="Choose User Name">
+                        <select class="js-example-basic-single form-control" name="user_name_id" data-placeholder="Choose User Name">
                             <option label="Select Department Id"></option>
                             @foreach($all_user as $userName)
                             <option value="{{$userName->id}}">{{$userName->name}}</option>
                             @endforeach
                           </select>
-                        @error('user_id')
+                        @error('user_name_id')
                         <small class="text-danger">{{ $message }}</small>
                     @enderror
                     </div>
                     <div class="col-md-4">
-                        <label for="validationCustom01" class="form-label">Printer Brand</label>
-                        <input type="text" class="form-control" id="validationCustom01" name="brand" >
-                        @error('brand')
+                        <label for="validationCustom01" class="form-label">Servicing Details</label>
+                        <input type="text" class="form-control" id="validationCustom01" name="servicing_details" >
+                        @error('servicing_details')
                         <small class="text-danger">{{ $message }}</small>
                     @enderror
                     </div>
 
                     <div class="col-md-4">
-                        <label for="validationCustom01" class="form-label">Printer Model</label>
-                        <input type="text" class="form-control" id="validationCustom01" name="model" >
-                        @error('model')
+                        <label for="validationCustom01" class="form-label">Amount</label>
+                        <input type="text" class="form-control" id="validationCustom01" name="amount" >
+                        @error('amount')
+                        <small class="text-danger">{{ $message }}</small>
+                    @enderror
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="validationCustom01" class="form-label">comment</label>
+                        <input type="text" class="form-control" id="validationCustom01" name="comment" >
+                        @error('comment')
                         <small class="text-danger">{{ $message }}</small>
                     @enderror
                     </div>

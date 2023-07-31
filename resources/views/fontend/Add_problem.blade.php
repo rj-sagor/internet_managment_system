@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
 
@@ -70,10 +72,10 @@
                 <div class="row g-3">
                     <div class="col-md-6">
                         <label for="validationDefault01" class="form-label">User ID</label>
-                        <select class="js-example-basic-single form-control" name="user_id" data-placeholder="Choose category">
+                        <select  id="userselect" class="js-example-basic-single form-control"  name="user_id" data-placeholder="Choose category">
                             <option label="Select user Id"></option>
                             @foreach($all_user as $user)
-                            <option value="{{$user->id}}">{{$user->user_id}}</option>
+                            <option value="{{$user}}" >{{$user->name}}</option>
                             @endforeach
                           </select>
                         @error('user_id')
@@ -88,39 +90,48 @@
                     @enderror
                     </div>
                     <div class="col-md-6">
-                        <label for="validationDefault02" class="form-label">User Designation</label>
-                        <input type="text" class="form-control" id="validationDefault02" name="designation" >
-                        @error('designation')
+                        <label for="validationDefault02" class="form-label">User Department</label>
+                        <select class="js-example-basic-single form-control" name="designation_id" data-placeholder="Choose category">
+                            <option label="Select designation"></option>
+                            @foreach($all_designation as $designation)
+                            <option value="{{$designation->id}}">{{$designation->designation_name}}</option>
+                            @endforeach
+                          </select>
+                        @error('designation_id')
                         <small class="text-danger">{{ $message }}</small>
                     @enderror
                     </div>
                     <div class="col-md-6">
                         <label for="validationDefault02" class="form-label">User Department</label>
-                        <select class="js-example-basic-single form-control" name="department" data-placeholder="Choose category">
+                        <select class="js-example-basic-single form-control" name="department_id" data-placeholder="Choose category">
                             <option label="Select Department"></option>
                             @foreach($all_department as $department)
-                            <option value="{{$department->id}}">{{$department->department_id}}</option>
+                            <option value="{{$department->id}}">{{$department->department_name}}</option>
                             @endforeach
                           </select>
-                        @error('department')
+                        @error('department_id')
                         <small class="text-danger">{{ $message }}</small>
                     @enderror
                     </div>
                     <div class="col-md-6">
                         <label for="validationDefault02" class="form-label">User Room Number</label>
-                        <input type="text" class="form-control" id="validationDefault02" name="room_number" >
+                        <input type="text" class="form-control" id="room_number" name="room_number" placeholder="">
                         @error('room_number')
                         <small class="text-danger">{{ $message }}</small>
                     @enderror
                     </div>
                     <div class="col-md-6">
-                        <label for="validationDefault02" class="form-label">User Problem</label>
-                        <textarea name="problem" class="form-control" id="validationDefault02" cols="15" rows="5"></textarea>
-                        @error('problem')
+                        <label for="validationDefault02" class="form-label">Problem Details</label>
+                        <select class="js-example-basic-single form-control" name="problem_id" data-placeholder="Choose category">
+                            <option label="Select Department"></option>
+                            @foreach($all_problem_list as $problem)
+                            <option value="{{$problem->id}}">{{$problem->problem_name}}</option>
+                            @endforeach
+                          </select>
+                        @error('problem_id')
                         <small class="text-danger">{{ $message }}</small>
                     @enderror
                     </div>
-
                     <div class="col-12">
                         <button class="btn btn-primary" type="submit">Save</button>
                     </div>
@@ -137,10 +148,18 @@
    </div>
 
 </footer>
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+{{-- <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> --}}
 <script>
 $(document).ready(function() {
-    $('.js-example-basic-single').select2();
+
+    $("#userselect").change(function () {
+
+        var user =  $("#userselect").val();
+        const myJSON = JSON.parse(user);
+        // alert(myJSON);
+        document.getElementById("room_number").setAttribute('value', myJSON.room_number);
+        });
+    // $('.js-example-basic-single').select2();
 });
 </script>
 

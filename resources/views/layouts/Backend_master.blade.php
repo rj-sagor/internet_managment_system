@@ -176,7 +176,13 @@
                 <div class="menu-title">Set Up Managment</div>
               </a>
               <ul>
-                <li> <a href="{{ route('Setup.create') }}"><i class="bi bi-arrow-right-short"></i>Department</a>
+                <li> <a href="{{ route('Setup.index') }}"><i class="bi bi-arrow-right-short"></i>Department</a>
+                </li>
+                <li> <a href="{{ route('setup_designation.index') }}"><i class="bi bi-arrow-right-short"></i>Designation</a>
+                </li>
+                <li> <a href="{{ route('setup_status.index') }}"><i class="bi bi-arrow-right-short"></i>Status</a>
+                </li>
+                <li> <a href="{{ route('setup_problem.index') }}"><i class="bi bi-arrow-right-short"></i>Problem List</a>
                 </li>
 
               </ul>
@@ -229,6 +235,23 @@
 
                 </ul>
               </li>
+              <li>
+              <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class="bi bi-grid"></i>
+                </div>
+                <div class="menu-title">Servic Manegment</div>
+              </a>
+              <ul>
+                <li> <a href="{{ route('service.create') }}"><i class="bi bi-arrow-right-short"></i>Service Add</a>
+                </li>
+                <li> <a href="{{ route('service.index') }}"><i class="bi bi-arrow-right-short"></i>Service List</a>
+                </li>
+
+
+                </li>
+
+              </ul>
+            </li>
         </ul>
           <!--end navigation-->
        </aside>

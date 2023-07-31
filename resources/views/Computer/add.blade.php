@@ -5,6 +5,14 @@
     <!--breadcrumb-->
     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
     </div>
+    <div class="d-flex justify-content-between m-4">
+        <div>
+            <h6 class="mb-0 text-uppercase">Computer Infornation Upload</h6>
+        </div>
+        <div>
+            <a class="btn btn-primary" href="{{ route('computerinfo.index') }}">Computer Information List</a>
+        </div>
+        </div>
    <form action="{{ route('computerinfo.store') }}" method="POST">
     @csrf
     <div class="card">

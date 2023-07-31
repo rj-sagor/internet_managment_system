@@ -32,7 +32,7 @@
                     </div>
 
                     <div class="col-md-4">
-                        <label for="validationCustom01" class="form-label">Scanner Brand</label>
+                        <label for="validationCustom01" class="form-label">Scanner Model</label>
                         <input type="text" class="form-control" id="validationCustom01" name="scanner_model" >
                         @error('scanner_model')
                         <small class="text-danger">{{ $message }}</small>

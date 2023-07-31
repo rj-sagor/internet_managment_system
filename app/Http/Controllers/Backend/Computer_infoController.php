@@ -5,8 +5,11 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\All_User;
+use App\Models\Printer;
+use App\Models\Scanner;
 use App\Models\ComputerInformation;
 use Carbon\Carbon;
+use PDF;
 
 
 class Computer_infoController extends Controller
@@ -16,7 +19,8 @@ class Computer_infoController extends Controller
      */
     public function index()
     {
-
+     $all_computer=Computerinformation::all();
+     return view('Computer.computer_list',compact('all_computer'));
 
     }
 
@@ -39,7 +43,23 @@ class Computer_infoController extends Controller
             'created_at'=>Carbon::now(),
             ]);
 
-            return back()->with('success','Department uploaded successfully');
+            // Printer::insert([
+            //     'user_id'=>$request->user_id,
+            //     'brand'=>"null",
+            //     'model'=>"null",
+            //     'created_at'=>Carbon::now()
+            // ]);
+
+            // Scanner::insert([
+            //     'user_id'=>$request->user_id,
+            //     'scanner_brand'=>"null",
+            //     'scanner_model'=>"null",
+            //     'created_at'=>Carbon::now()
+            // ]);
+
+
+
+            return back()->with('success','Computer Information uploaded successfully');
     }
 
     /**
@@ -84,5 +104,13 @@ class Computer_infoController extends Controller
     {
         $all_information=ComputerInformation::where('status','=',"approve")->get();
         return view('status.approve',compact('all_information'));
+    }
+    public function All_information_pdf($id){
+        $info=ComputerInformation::find($id);
+        $pdf = PDF::loadView('status.all_info_pdf',compact('info'))->setPaper('a4', 'portrait');
+        // $pdf = PDF::loadView('Home.report')->setPaper('a4', 'portrait');
+        // return $pdf->download('inronman.pdf');
+        return $pdf->stream('status.all_info');
+
     }
 }

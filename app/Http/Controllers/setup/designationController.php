@@ -1,21 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\Backend;
+namespace App\Http\Controllers\setup;
 
 use App\Http\Controllers\Controller;
-use App\Models\Department;
-use Carbon\Carbon;
+use App\Models\designation;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+use Illuminate\Validation\Rules\Unique;
 
-class SetUpController extends Controller
+class designationController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $all_depar=Department::all();
-        return view('SetUp.SetupAdd',compact('all_depar'));
+        $All_desig=designation::all();
+        return view('designation.add',compact('All_desig'));
     }
 
     /**
@@ -32,14 +33,14 @@ class SetUpController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'department_name'=>'unique:departments,department_name',
+            'designation_name'=>'unique:designations,designation_name',
         ]);
-        Department::insert($request->except('_token') + [
+        designation::insert($request->except('_token') + [
 
             'created_at'=>Carbon::now(),
             ]);
 
-            return back()->with('success','Department uploaded successfully');
+            return back()->with('success','Designation uploaded successfully');
     }
 
     /**

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Department;
 use App\Models\All_User;
+use App\Models\designation;
 use Carbon\Carbon;
 
 use Illuminate\Http\Request;
@@ -16,7 +17,8 @@ class UserController extends Controller
      */
     public function index()
     {
-
+     $all_user=All_User::all();
+     return view('Admin_Upload.user_info.user_list',compact('all_user'));
     }
 
     /**
@@ -25,7 +27,8 @@ class UserController extends Controller
     public function create()
     {
         $All_Department=Department::All();
-        return view('Admin_Upload.user_info.add',compact('All_Department'));
+        $All_desig=designation::All();
+        return view('Admin_Upload.user_info.add',compact('All_Department','All_desig'));
     }
 
     /**
@@ -33,6 +36,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+
         All_User::insert($request->except('_token') + [
 
             'created_at'=>Carbon::now(),

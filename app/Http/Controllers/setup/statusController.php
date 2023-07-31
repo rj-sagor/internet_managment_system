@@ -1,21 +1,21 @@
 <?php
 
-namespace App\Http\Controllers\Backend;
+namespace App\Http\Controllers\setup;
 
 use App\Http\Controllers\Controller;
-use App\Models\Department;
-use Carbon\Carbon;
+use App\Models\status;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
-class SetUpController extends Controller
+class statusController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $all_depar=Department::all();
-        return view('SetUp.SetupAdd',compact('all_depar'));
+        $all_status=status::all();
+        return view('setup_status.add',compact('all_status'));
     }
 
     /**
@@ -23,7 +23,7 @@ class SetUpController extends Controller
      */
     public function create()
     {
-
+        //
     }
 
     /**
@@ -32,14 +32,14 @@ class SetUpController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'department_name'=>'unique:departments,department_name',
+            'status_name'=>'unique:statuses,status_name',
         ]);
-        Department::insert($request->except('_token') + [
+        status::insert($request->except('_token') + [
 
             'created_at'=>Carbon::now(),
             ]);
 
-            return back()->with('success','Department uploaded successfully');
+            return back()->with('success','status uploaded successfully');
     }
 
     /**

@@ -15,15 +15,15 @@
     </div>
      @endif</div>
     <div class="col-sm-4">
-        <h2>Department name</h2>
+        <h2>Problem List</h2>
         <hr>
         <div>
-           <form action="{{ route('Setup.store') }}" method="POST">
+           <form action="{{ route('setup_problem.store') }}" method="POST">
             @csrf
             <div class="col-sm-12">
-                <label for="validationCustom01" class="form-label">Department</label>
-                <input type="text" class="form-control" id="validationCustom01" name="department_name" required >
-                @error('department_name')
+                <label for="validationCustom01" class="form-label">Problem Name</label>
+                <input type="text" class="form-control" id="validationCustom01" name="problem_name" required >
+                @error('problem_name')
                 <small class="text-danger">{{ $message }}</small>
             @enderror
             </div>
@@ -39,15 +39,15 @@
             <thead>
                 <tr>
                     <th>Sl</th>
-                    <th>ID</th>
                     <th>Name</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($all_depar as $info )
+                @foreach ($all_setupProblem as $info )
                 <tr>
                     <td>{{ $loop->index +1 }}</td>
-                    <td>{{ $info->department_name }}</td>
+                    <td>{{ $info->problem_name }}</td>
                     <td>edit</td>
 
                 </tr>

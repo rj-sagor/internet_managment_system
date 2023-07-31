@@ -1,21 +1,21 @@
 <?php
 
-namespace App\Http\Controllers\Backend;
+namespace App\Http\Controllers\setup;
 
 use App\Http\Controllers\Controller;
-use App\Models\Department;
-use Carbon\Carbon;
+use App\Models\ProblemList;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
-class SetUpController extends Controller
+class problemsetController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $all_depar=Department::all();
-        return view('SetUp.SetupAdd',compact('all_depar'));
+        $all_setupProblem=ProblemList::all();
+        return view('ProblemList.uploadList',compact('all_setupProblem'));
     }
 
     /**
@@ -23,7 +23,7 @@ class SetUpController extends Controller
      */
     public function create()
     {
-
+        //
     }
 
     /**
@@ -32,14 +32,15 @@ class SetUpController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'department_name'=>'unique:departments,department_name',
+            'problem_name'=>'unique:problem_lists,problem_name',
         ]);
-        Department::insert($request->except('_token') + [
+        ProblemList::insert($request->except('_token') + [
 
             'created_at'=>Carbon::now(),
             ]);
 
-            return back()->with('success','Department uploaded successfully');
+            return back()->with('success','Problem uploaded successfully');
+
     }
 
     /**

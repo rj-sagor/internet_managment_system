@@ -3,19 +3,20 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Department;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Models\All_User;
+use App\Models\Servicing;
+use Carbon\Carbon;
 
-class SetUpController extends Controller
+class ServiceController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $all_depar=Department::all();
-        return view('SetUp.SetupAdd',compact('all_depar'));
+        $all_service=Servicing::all();
+        return view('Service.service_list',compact('all_service'));
     }
 
     /**
@@ -23,7 +24,8 @@ class SetUpController extends Controller
      */
     public function create()
     {
-
+        $all_user=All_User::all();
+        return view('Service.serviceAdd',compact('all_user'));
     }
 
     /**
@@ -31,10 +33,8 @@ class SetUpController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'department_name'=>'unique:departments,department_name',
-        ]);
-        Department::insert($request->except('_token') + [
+
+        Servicing::insert($request->except('_token') + [
 
             'created_at'=>Carbon::now(),
             ]);

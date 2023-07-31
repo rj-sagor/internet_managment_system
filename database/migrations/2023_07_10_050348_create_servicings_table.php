@@ -11,15 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('problems', function (Blueprint $table) {
+        Schema::create('servicings', function (Blueprint $table) {
             $table->id();
-            $table->string("user_id")->uniqid();
-            $table->string('name');
-            $table->string('designation_id');
-            $table->string('department_id');
-            $table->string('room_number');
-            $table->string('problem_id');
-            $table->string('status')->default('unsolve');
+            $table->string('user_name_id');
+            $table->string('servicing_details');
+            $table->string('amount')->nullable();
+            $table->string('comment');
             $table->timestamps();
         });
     }
@@ -29,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('problems');
+        Schema::dropIfExists('servicings');
     }
 };
