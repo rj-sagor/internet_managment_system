@@ -16,6 +16,12 @@ use PDF;
 
 class Computer_infoController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      */
