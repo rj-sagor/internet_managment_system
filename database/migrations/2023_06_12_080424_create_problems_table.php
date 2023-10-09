@@ -19,7 +19,11 @@ return new class extends Migration
             $table->string('department_id');
             $table->string('room_number');
             $table->string('problem_id');
-            $table->string('status')->default('unsolve');
+            $table->string('problem_trucking_number');
+            $table->string('service_cost')->nullable();
+            $table->string('service_date')->nullable();
+            $table->string('service_details')->nullable();
+            $table->string('status')->default('1');
             $table->timestamps();
         });
     }

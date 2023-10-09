@@ -37,6 +37,17 @@ class UserController extends Controller
     public function store(Request $request)
     {
 
+        $request->validate([
+
+            'department_id'=>'required',
+            'user_id'=>'required|unique:all__users,user_id',
+            'name'=>'required',
+            'designation_id'=>'required',
+            'room_number'=>'required',
+            'mobile_number'=>'required',
+            'email'=>'required|unique:all__users,email',
+        ]);
+
         All_User::insert($request->except('_token') + [
 
             'created_at'=>Carbon::now(),

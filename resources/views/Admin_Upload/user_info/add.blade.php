@@ -32,18 +32,6 @@
                 <div class="card-body">
                     <div class="p-4 border rounded">
                         <div class="row g-3 needs-validation" novalidate="">
-                            <div class="col-md-4">
-                                <label for="validationCustom01" class="form-label">Department</label>
-                                <select class="js-example-basic-single form-control" name="department_id" data-placeholder="Choose category">
-                                    <option label="Select Department Name"></option>
-                                    @foreach($All_Department as $department)
-                                    <option value="{{$department->id}}">{{$department->department_name}}</option>
-                                    @endforeach
-                                  </select>
-                                @error('department_id')
-                                <small class="text-danger">{{ $message }}</small>
-                            @enderror
-                            </div>
 
                             {{-- <div class="col-md-4">
                                 <label for="validationCustom01" class="form-label">Department_ID</label>
@@ -92,6 +80,22 @@
                             <div class="col-md-4">
                                 <label for="validationCustom01" class="form-label">Room Number</label>
                                 <input type="text" class="form-control" id="validationCustom01" name="room_number" >
+                                @error('room_number')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="validationCustom01" class="form-label">Mobile Number</label>
+                                <input type="text" class="form-control" id="validationCustom01" name="mobile_number" >
+                                @error('room_number')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="validationCustom01" class="form-label">Email</label>
+                                <input type="text" class="form-control" id="validationCustom01" name="email" >
                                 @error('room_number')
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\All_User;
 use App\Models\Servicing;
+use App\Models\Problem;
 use Carbon\Carbon;
 
 class ServiceController extends Controller
@@ -25,7 +26,8 @@ class ServiceController extends Controller
     public function create()
     {
         $all_user=All_User::all();
-        return view('Service.serviceAdd',compact('all_user'));
+        $all_problem=Problem::all();
+        return view('Service.serviceAdd',compact('all_user','all_problem'));
     }
 
     /**

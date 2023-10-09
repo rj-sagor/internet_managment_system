@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\All_User;
+use App\Models\Printer;
+use App\Models\Scanner;
+use App\Models\Problem;
+
 
 class HomeController extends Controller
 {
@@ -23,6 +28,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $all_printer=Printer::where('brand','!=',"null")->count();
+        $all_scanner=Scanner::where('scanner_brand','!=',"null")->count();
+        $all_problem=Problem::count();
+        // $count=1;
+        // if ( $all_printer== 'null') {
+        //     # code...
+        // } else {
+        //     $count++;
+        // }
+
+        $user=All_User::count();
+        return view('home',compact('user','all_printer','all_scanner','all_problem'));
     }
 }

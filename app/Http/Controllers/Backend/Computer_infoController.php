@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\All_User;
 use App\Models\Printer;
 use App\Models\Scanner;
+use App\Models\category;
+use App\Models\Department;
 use App\Models\ComputerInformation;
 use Carbon\Carbon;
 use PDF;
@@ -19,8 +21,11 @@ class Computer_infoController extends Controller
      */
     public function index()
     {
-     $all_computer=Computerinformation::all();
-     return view('Computer.computer_list',compact('all_computer'));
+     $all_department=Department::all();
+     $all_depart=ComputerInformation::select('department_id')->groupBy('department_id')->get();
+     $all_category=category::all();
+     $all_computer=ComputerInformation::all();
+     return view('Computer.computer_list',compact('all_department','all_category','all_computer','all_depart'));
 
     }
 
@@ -28,9 +33,12 @@ class Computer_infoController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
+
     {
+        $all_department=Department::all();
+     $all_category=category::all();
         $all_user_name=All_User::all();
-        return view('Computer.add',compact('all_user_name'));
+        return view('Computer.add',compact('all_department','all_category'));
     }
 
     /**
@@ -38,6 +46,19 @@ class Computer_infoController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+
+            'monitor'=>'required',
+            'mother_board'=>'required',
+            'proccesor'=>'required',
+            'ip_address'=>'required',
+            'mac_address'=>'required',
+            'installation_date'=>'required',
+            'ram'=>'required',
+            'os_system'=>'required',
+            'os_system'=>'required',
+            'hdd_ssd'=>'required',
+        ]);
         ComputerInformation::insert($request->except('_token') + [
 
             'created_at'=>Carbon::now(),
@@ -59,15 +80,20 @@ class Computer_infoController extends Controller
 
 
 
-            return back()->with('success','Computer Information uploaded successfully');
+            return redirect()->route('computerinfo.index')->with('success','Computer Information uploaded successfully');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $department_id)
     {
-        //
+
+     $department=ComputerInformation::where('department_id',$department_id)->get();
+     $all_depart=ComputerInformation::select('department_id')->groupBy('department_id')->get();
+
+        return view('Computer.department',compact('department','all_depart'));
+
     }
 
     /**
@@ -75,7 +101,10 @@ class Computer_infoController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $all_computer=ComputerInformation::find($id);
+        $all_user=All_User::all();
+        $all_department=Department::all();
+        return view('Computer.edit',compact('all_computer','all_user','all_department'));
     }
 
     /**
@@ -83,7 +112,18 @@ class Computer_infoController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // $user_data=ComputerInformation::find($id);
+        // $user=$user_data->user_id;
+        // if($user==null){
+            ComputerInformation::find($id)->update($request->except('_token') + [
+
+                'updated_at'=>Carbon::now(),
+                ]);
+                return back()->with('success','Information uploaded successfully');
+
+
+
+
     }
 
     /**
@@ -105,11 +145,21 @@ class Computer_infoController extends Controller
         $all_information=ComputerInformation::where('status','=',"approve")->get();
         return view('status.approve',compact('all_information'));
     }
-    public function All_information_pdf($id){
-        $info=ComputerInformation::find($id);
+    public function All_information_pdf(){
+        $info=ComputerInformation::all();
         $pdf = PDF::loadView('status.all_info_pdf',compact('info'))->setPaper('a4', 'portrait');
-        // $pdf = PDF::loadView('Home.report')->setPaper('a4', 'portrait');
-        // return $pdf->download('inronman.pdf');
+        return $pdf->stream('status.all_info');
+    }
+
+    public function pendding_edit($id){
+        return view ('status.pendding_edit');
+
+    }
+
+    public function singleData($id){
+        $info=ComputerInformation::find($id);
+        $date =  Carbon::now();
+        $pdf = PDF::loadView('status.computer_single_data',compact('info','date'))->setPaper('a4', 'portrait');
         return $pdf->stream('status.all_info');
 
     }

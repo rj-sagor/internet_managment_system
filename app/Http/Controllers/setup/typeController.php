@@ -1,21 +1,23 @@
 <?php
 
-namespace App\Http\Controllers\Backend;
+namespace App\Http\Controllers\setup;
 
 use App\Http\Controllers\Controller;
-use App\Models\Department;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Models\category;
+use Carbon\Carbon;
 
-class SetUpController extends Controller
+
+
+class typeController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $all_depar=Department::all();
-        return view('SetUp.SetupAdd',compact('all_depar'));
+        $All_cate=category::all();
+        return view('type.add',compact('All_cate'));
     }
 
     /**
@@ -23,7 +25,7 @@ class SetUpController extends Controller
      */
     public function create()
     {
-
+        //
     }
 
     /**
@@ -32,15 +34,14 @@ class SetUpController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'department_name'=>'unique:departments,department_name',
-
+            'category_name'=>'unique:designations,designation_name',
         ]);
-        Department::insert($request->except('_token') + [
+        category::insert($request->except('_token') + [
 
             'created_at'=>Carbon::now(),
             ]);
 
-            return back()->with('success','Department uploaded successfully');
+            return back()->with('success','Designation uploaded successfully');
     }
 
     /**

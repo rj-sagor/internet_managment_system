@@ -10,7 +10,8 @@
             <tr>
                 <th>Sl</th>
                <th>name</th>
-               <th>User ID</th>
+               <th>Problem_Id</th>
+               <th>E-nothi ID</th>
                <th>Service Details</th>
                <th>amount</th>
                 <th>Comments</th>
@@ -22,6 +23,7 @@
          <tr>
              <td>{{ $loop->index +1 }}</td>
              <td>{{ $service->service_to_user->name }}</td>
+             <td>{{ $service->service_to_problem->problem_trucking_number }}</td>
              <td>{{ $service->service_to_user->user_id }}</td>
              <td>{{ $service->servicing_details }}</td>
              <td>{{ $service->amount }}</td>

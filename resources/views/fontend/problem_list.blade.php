@@ -50,6 +50,7 @@
                 <th>SL</th>
                 <th>ID</th>
                 <th>Name</th>
+                <th>Trucking Number</th>
                 <th>Designation</th>
                 <th>Room Number</th>
                 <th>Problem</th>
@@ -64,11 +65,12 @@
             <td>{{ $loop->index+1  }}</td>
             <td>{{ $problem->user_id  }}</td>
             <td>{{ $problem->name  }}</td>
-            <td>{{ $problem->designation  }}</td>
+            <td>{{ $problem->problem_trucking_number  }}</td>
+            <td>{{ $problem->problem_to_designation->designation_name  }}</td>
             <td>{{ $problem->room_number  }}</td>
-            <td>{{ $problem->problem  }}</td>
+            <td>{{ $problem->problem_to_problem->problem_name  }}</td>
             <td>{{ $problem->created_at  }}</td>
-            <td>{{ $problem->status  }}</td>
+            <td>{{ $problem->problem_to_status->status_name  }}</td>
             <td>
                    <a href=""><i class="fas fa-edit"></i></a>
             </td>

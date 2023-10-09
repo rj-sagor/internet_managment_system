@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('scanners', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id');
+            $table->string('user_id')->default('null');
+            $table->string('department_id');
+            $table->string('type_id');
+            $table->string('scanner_id');
             $table->string('scanner_brand');
             $table->string('scanner_model');
             $table->timestamps();

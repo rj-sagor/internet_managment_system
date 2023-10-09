@@ -16,36 +16,41 @@
      @endif
     </div>
     <div class="d-flex justify-content-end mb-4 ">
-        <button type="submit" class="btn btn-info add_department">Add Department</button>
+        <button type="submit" class="btn btn-info add_designation">Add Category</button>
     </div>
     {{-- modal start --}}
 <!-- Button trigger modal -->
 
 
   <!-- Modal -->
-  <div class="modal fade" id="modalshow" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="designation_Show" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <form action="{{ route('Setup.store') }}" method="POST">
+      <form action="{{ route('type.store') }}" method="POST">
         @csrf
         <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">Add Department</h1>
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Add Category</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body p-4">
                 <div class="col-sm-12">
-                    <label for="validationCustom01" class="form-label">Department</label>
-                    <input type="text" class="form-control" id="validationCustom01" name="department_name" required="">
-                                </div>
-
-                                <div class="col-sm-12">
-                                    <label for="validationCustom01" class="form-label">Department Id</label>
-                                    <input type="text" class="form-control" id="validationCustom01" name="department_id" required="">
-                                                </div>
+                    <label for="validationCustom01" class="form-label">Category</label>
+                    <input type="text" class="form-control" id="validationCustom01" name="category_name" required="">
+                    @error('designation_name')
+                    <small class="text-danger">{{ $message }}</small>
+                @enderror
+                </div>
+                <div class="col-sm-12">
+                    <label for="validationCustom01" class="form-label">Category Id</label>
+                    <input type="text" class="form-control" id="validationCustom01" name="category_id" required="">
+                    @error('designation_name')
+                    <small class="text-danger">{{ $message }}</small>
+                @enderror
+                </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary">Save changes</button>
+              <button type="submit" class="btn btn-primary">Submit</button>
             </div>
           </div>
       </form>
@@ -59,17 +64,17 @@
             <thead>
                 <tr>
                     <th>Sl</th>
-                    <th>Department Name</th>
-                    <th>Department id</th>
+                    <th>Category Name</th>
+                    <th>Category Id</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($all_depar as $info )
+                @foreach ($All_cate as $info )
                 <tr>
                     <td>{{ $loop->index +1 }}</td>
-                    <td>{{ $info->department_name }}</td>
-                    <td>{{ $info->department_id }}</td>
+                    <td>{{ $info->category_name }}</td>
+                    <td>{{ $info->category_id }}</td>
                     <td>edit</td>
 
                 </tr>
@@ -98,8 +103,8 @@
 <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
 <script>
     $(document).ready(function () {
-        $(document).on('click','.add_department',function(){
-            $('#modalshow').modal('show')
+        $(document).on('click','.add_designation',function(){
+            $('#designation_Show').modal('show')
         });
     $('#example').DataTable();
 });

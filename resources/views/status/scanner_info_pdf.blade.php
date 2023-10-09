@@ -30,21 +30,20 @@
             82,Segunbagica,Dhaka-1000</p>
         </div>
     </div>
-
 <table>
   <tr>
     <th>Sl</th>
-    <th>Computer Id</th>
-    <th>Computer Information</th>
+    <th>Scanner Id</th>
+    <th>Scanner Details</th>
     <th>User Name</th>
     <th>Department</th>
   </tr>
   @foreach ($info as $data )
+
       <tr>
         <td>{{ $loop->index+1  }}</td>
-        <td>{{ $data->computer_id }}</td>
-        <td>{{ $data->monitor }}-{{ $data->mother_board }}-{{ $data->proccesor }}-{{ $data->ram }}-{{ $data->ip_address }} <br>
-            {{ $data->hdd_ssd }}-{{ $data->mac_address }}-{{ $data->tender_date }}</td>
+        <td>{{ $data->scanner_id }}</td>
+        <td>{{ $data->scanner_brand }}-{{ $data->scanner_model }}</td>
         <td>
             @if (!is_null($data->Info_to_user))
             {{ $data->Info_to_user->name }} <br>
@@ -52,15 +51,11 @@
 
             @else
             {{ "No User Exit" }}
-
             @endif
     </td>
     <td>
         @if (!is_null($data->Info_to_department))
         {{ $data->Info_to_department->department_name }} <br>
-
-
-
         @else
         {{ "No User Exit" }}
 
@@ -68,6 +63,7 @@
 </td>
   </tr>
   @endforeach
+
 
 
 </table>

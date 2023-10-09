@@ -9,6 +9,8 @@ use App\Models\All_User;
 use App\Models\designation;
 use App\Models\ProblemList;
 use Carbon\Carbon;
+use  Illuminate\Support\Str;
+
 
 
 
@@ -19,7 +21,8 @@ class fontendController extends Controller
      */
     public function index()
     {
-        $all_problem=Problem::all();
+        $all_problem=Problem::orderBy('created_at', 'DESC')->get();
+        // dd($all_problem);
         return view('fontend.problem_list',compact('all_problem'));
     }
 
@@ -50,8 +53,11 @@ class fontendController extends Controller
             "problem_id"=>'required',
 
          ]);
+         $randomCode=random_int(100000, 999999);
+
 
          Problem::insert($request->except('_token') + [
+            "problem_trucking_number"=>$randomCode,
 
             'created_at'=>Carbon::now(),
             ]);

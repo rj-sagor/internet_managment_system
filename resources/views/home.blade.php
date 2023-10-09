@@ -7,79 +7,59 @@
       <div class="col">
         <div class="card radius-10">
           <div class="card-body">
-              <div class="d-flex align-items-center">
+
                   <div>
                       <p class="mb-0 text-secondary">Total Computer</p>
-                      <h4 class="my-1">4805</h4>
-                      <p class="mb-0 font-13 text-success"><i class="bi bi-caret-up-fill"></i> 5% from last week</p>
                   </div>
-                  <div class="widget-icon-large bg-gradient-purple text-white ms-auto"><i class="bi bi-basket2-fill"></i>
+                  <div class="widget-icon-large bg-gradient-purple text-white mt-3 text-aligne-center"><i class="bi bi-basket2-fill"> {{ $user }}</i>
                   </div>
-              </div>
+
+
           </div>
-        </div>
-       </div>
-       <div class="col">
-          <div class="card radius-10">
-            <div class="card-body">
-                <div class="d-flex align-items-center">
-                    <div>
-                        <p class="mb-0 text-secondary">Total Laptop</p>
-                        <h4 class="my-1">$24K</h4>
-                        <p class="mb-0 font-13 text-success"><i class="bi bi-caret-up-fill"></i> 4.6 from last week</p>
-                    </div>
-                    <div class="widget-icon-large bg-gradient-success text-white ms-auto"><i class="bi bi-currency-exchange"></i>
-                    </div>
-                </div>
-            </div>
         </div>
        </div>
        <div class="col">
         <div class="card radius-10">
           <div class="card-body">
-              <div class="d-flex align-items-center">
+
                   <div>
                       <p class="mb-0 text-secondary">Total Printer</p>
-                      <h4 class="my-1">5.8K</h4>
-                      <p class="mb-0 font-13 text-danger"><i class="bi bi-caret-down-fill"></i> 2.7 from last week</p>
                   </div>
-                  <div class="widget-icon-large bg-gradient-danger text-white ms-auto"><i class="bi bi-people-fill"></i>
+                  <div class="widget-icon-large bg-gradient-purple text-white mt-3 text-aligne-center"><a class="text-white" href="{{ route('printer.index') }}"><i class="bi bi-basket2-fill"> {{ $all_printer }}</i></a>
                   </div>
-              </div>
-          </div>
-       </div>
-       </div>
-       <div class="col">
-        <div class="card radius-10">
-          <div class="card-body">
-              <div class="d-flex align-items-center">
-                  <div>
-                      <p class="mb-0 text-secondary">Total Scanner</p>
-                      <h4 class="my-1">38.15%</h4>
-                      <p class="mb-0 font-13 text-success"><i class="bi bi-caret-up-fill"></i> 12.2% from last week</p>
-                  </div>
-                  <div class="widget-icon-large bg-gradient-info text-white ms-auto"><i class="bi bi-bar-chart-line-fill"></i>
-                  </div>
-              </div>
+
+
           </div>
         </div>
        </div>
        <div class="col">
         <div class="card radius-10">
           <div class="card-body">
-              <div class="d-flex align-items-center">
+
+                  <div>
+                      <p class="mb-0 text-secondary">Total Scanner</p>
+                  </div>
+                  <div class="widget-icon-large bg-gradient-purple text-white mt-3 text-aligne-center"><a class="text-white" href="{{ route('scanner.index') }}"><i class="bi bi-basket2-fill"> {{ $all_scanner }}</i></a>
+                  </div>
+
+
+          </div>
+        </div>
+       </div>
+       <div class="col">
+        <div class="card radius-10">
+          <div class="card-body">
+
                   <div>
                       <p class="mb-0 text-secondary">Total Problem</p>
-                      <h4 class="my-1">5.8K</h4>
-                      <p class="mb-0 font-13 text-danger"><i class="bi bi-caret-down-fill"></i> 2.7 from last week</p>
                   </div>
-                  <div class="widget-icon-large bg-gradient-danger text-white ms-auto"><i class="bi bi-people-fill"></i>
+                  <div class="widget-icon-large bg-gradient-purple text-white mt-3 text-aligne-center"><a class="text-white" href="{{ route('admin_Problem_list.index') }}"><i class="bi bi-basket2-fill"> {{ $all_problem }}</i></a>
                   </div>
-              </div>
-          </div>
-       </div>
 
-    </div><!--end row--
+
+          </div>
+        </div>
+       </div>
 
 @endsection
 

@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('printers', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id');
+            $table->string('user_id')->default('null');
+            $table->string('department_id');
+            $table->string('type_id');
+            $table->string('printer_id');
             $table->string('brand');
             $table->string('model');
             $table->timestamps();

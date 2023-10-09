@@ -7,10 +7,7 @@
     </div>
     <div class="d-flex justify-content-between m-4">
         <div>
-            <h6 class="mb-0 text-uppercase">User Information List</h6>
-        </div>
-        <div>
-           <a class="btn btn-info" href="{{ route('all_informaton_pdf') }}">print</a>
+            <h6 class="mb-0 text-uppercase">computer Information List</h6>
         </div>
         <div class="d-flex justify-content-between ">
             <div>
@@ -30,23 +27,15 @@
                   </div>
 
             </div>
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                 All Information List
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                  <li><a class="dropdown-item" href="{{ route('computerinfo.index') }}">Computer List</a></li>
-                  <li><a class="dropdown-item" href="{{ route('printer.index') }}">Printer List</a></li>
-                  <li><a class="dropdown-item" href="{{ route('scanner.index') }}">Scanner List</a></li>
-                </ul>
-              </div>
+
+            <a class="btn btn-primary" href="{{ route('computerinfo.index') }}">All_computer_list</a>
         </div>
         </div>
     <table id="example" class="table table-striped" style="width:100%">
         <thead>
             <tr>
                 <th>Sl</th>
-                <th>User name</th>
+                <th>User Name</th>
                 <th>Department</th>
                 <th>Computer Id</th>
                 <th>Motherboard</th>
@@ -63,7 +52,7 @@
             </tr>
         </thead>
         <tbody>
-         @forelse ($all_computer as $computer )
+         @forelse ($department as $computer )
          <tr>
              <td>{{ $loop->index +1  }}</td>
              <td>
@@ -85,10 +74,7 @@
              <td>{{ $computer->mac_address }}</td>
              <td>{{ $computer->installation_date }}</td>
              <td>{{ $computer->ram }}</td>
-
              <td>{{ $computer->hdd_ssd }}</td>
-             {{-- <td>{{ $info->user_id }}</td>
-             <td>{{ $info->user_to_designation->designation_name }}</td> --}}
              <td>
                 <a href="{{ route('computerinfo.edit',$computer->id) }}"><i class="fas fa-edit"></i></a>
                 <a href="{{ route('single_data_pdf',$computer->id) }}"><i class="fa fa-print" aria-hidden="true"></i></a>
@@ -103,6 +89,7 @@
         </tbody>
 
     </table>
+
 </main>
 @endsection
 @section("Backend_css")

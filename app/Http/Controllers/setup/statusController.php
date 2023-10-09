@@ -55,7 +55,7 @@ class statusController extends Controller
      */
     public function edit(string $id)
     {
-        //
+
     }
 
     /**

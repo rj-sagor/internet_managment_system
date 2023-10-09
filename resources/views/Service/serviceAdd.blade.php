@@ -23,6 +23,19 @@
                         <small class="text-danger">{{ $message }}</small>
                     @enderror
                     </div>
+
+                    <div class="col-md-4">
+                        <label for="validationCustom01" class="form-label">Problem Tracking Number</label>
+                        <select class="js-example-basic-single form-control" name="problem_id" data-placeholder="Choose tracking Number">
+                            <option label="Select tracking number"></option>
+                            @foreach($all_problem as $problem)
+                            <option value="{{$problem->id}}">{{$problem->problem_trucking_number}}</option>
+                            @endforeach
+                          </select>
+                        @error('problem_id')
+                        <small class="text-danger">{{ $message }}</small>
+                    @enderror
+                    </div>
                     <div class="col-md-4">
                         <label for="validationCustom01" class="form-label">Servicing Details</label>
                         <input type="text" class="form-control" id="validationCustom01" name="servicing_details" >

@@ -8,23 +8,21 @@
     <div class="panel panel-default">
         <div class="panel-body">
 
-          <div class="p-4">
-            <form action="{{ route('admin_Problem_list.index') }}" method="get">
-                <div class="row">
-                   <div class="col-md-5 form-group">
-                       <label for="">Date From</label>
-                       <input type="date" name="date_from" class="form-control" value="{{ $request->date_from }}">
-                    </div>
+            <form action="{{ route('employee.index') }}" method="get">
+                 <div class="row">
                     <div class="col-md-5 form-group">
-                       <label for="">Date From</label>
-                       <input type="date" name="date_to" class="form-control" value="{{ $request->date_to }}">
-                    </div>
-                    <div class="col-md-2 form-group" style="margin-top:25px;">
-                       <input type="submit" class="btn btn-primary" value="Search">
-                    </div>
-                </div>
-           </form>
-          </div>
+                        <label for="">Date From</label>
+                        <input type="date" name="date_from" class="form-control" value="{{ $request->date_from }}">
+                     </div>
+                     <div class="col-md-5 form-group">
+                        <label for="">Date From</label>
+                        <input type="date" name="date_to" class="form-control" value="{{ $request->date_to }}">
+                     </div>
+                     <div class="col-md-2 form-group" style="margin-top:25px;">
+                        <input type="submit" class="btn btn-primary" value="Search">
+                     </div>
+                 </div>
+            </form>
 
             <table id="example" class="table table-striped" style="width:100%">
                 <thead>
@@ -60,7 +58,7 @@
                      <td>{{ $info->service_cost}}</td>
                      <td>{{ $info->service_date }}</td>
                      <td>{{ $info->service_details }}</td>
-                     <td>{{ $info->problem_to_status->status_name}}</td>
+                     <td>{{ $info->status }}</td>
                      <td>
                         <a href="{{ route('admin_Problem_list.edit',$info->id) }}"><i class="fas fa-edit"></i></a>
                         <a href="{{ route('service.details',$info->id) }}"><i class="fas fa-print"></i></a>
