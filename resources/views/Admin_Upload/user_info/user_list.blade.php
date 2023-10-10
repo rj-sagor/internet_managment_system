@@ -18,7 +18,6 @@
             <tr>
                 <th>Sl</th>
                 <th>User Name</th>
-                <th>Department</th>
                 <th>E-Nothi Id</th>
                 <th>Designation</th>
                 <th>Action</th>
@@ -30,7 +29,6 @@
          <tr>
              <td>{{ $loop->index +1  }}</td>
              <td>{{ $info->name }}</td>
-             <td>{{ $info->user_to_department->department_name }}</td>
              <td>{{ $info->user_id }}</td>
              <td>{{ $info->user_to_designation->designation_name }}</td>
              <td>edit</td>
@@ -47,7 +45,6 @@
             <tr>
                 <th>Sl</th>
                 <th>User Name</th>
-                <th>Department</th>
                 <th>E-Nothi Id</th>
                 <th>Designation</th>
                 <th>action</th>

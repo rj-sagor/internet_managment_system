@@ -38,8 +38,6 @@ class UserController extends Controller
     {
 
         $request->validate([
-
-            'department_id'=>'required',
             'user_id'=>'required|unique:all__users,user_id',
             'name'=>'required',
             'designation_id'=>'required',

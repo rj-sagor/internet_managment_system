@@ -56,7 +56,9 @@ class designationController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $all_desig=designation::find($id);
+        return view('designation.edit',compact('all_desig'));
+
     }
 
     /**
@@ -64,7 +66,12 @@ class designationController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        designation::find($id)->update($request->except('_token') + [
+
+            'updated_at'=>Carbon::now(),
+            ]);
+            return redirect()->route('setup_designation.index')->with('success','Printer Info update successfully');
+
     }
 
     /**

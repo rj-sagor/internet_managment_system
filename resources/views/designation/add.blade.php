@@ -66,8 +66,7 @@
                 <tr>
                     <td>{{ $loop->index +1 }}</td>
                     <td>{{ $info->designation_name }}</td>
-                    <td>edit</td>
-
+                    <td><a href="{{ route('setup_designation.edit',$info->id) }}"><i class="fas fa-edit"></i></a></td>
                 </tr>
 
                 @endforeach
