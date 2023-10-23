@@ -51,7 +51,7 @@ class UserController extends Controller
             'created_at'=>Carbon::now(),
             ]);
 
-            return back()->with('success','User Information Succesfully uploaded successfully');
+            return redirect()->route('UserUpoload.index')->with('success','User Information Succesfully uploaded successfully');
     }
 
     /**

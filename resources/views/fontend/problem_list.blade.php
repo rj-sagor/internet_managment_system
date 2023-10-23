@@ -56,7 +56,6 @@
                 <th>Problem</th>
                 <th>Upload Date</th>
                 <th>status</th>
-                <th>action</th>
             </tr>
         </thead>
        <tbody>
@@ -70,24 +69,13 @@
             <td>{{ $problem->room_number  }}</td>
             <td>{{ $problem->problem_to_problem->problem_name  }}</td>
             <td>{{ $problem->created_at  }}</td>
-            <td>{{ $problem->problem_to_status->status_name  }}</td>
-            <td>
-                   <a href=""><i class="fas fa-edit"></i></a>
-            </td>
+            <td>{{ $problem->status  }}</td>
+
         </tr>
         @endforeach
 
        </tbody>
-        <tfoot>
-            <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Start date</th>
-                <th>Salary</th>
-            </tr>
-        </tfoot>
+
     </table>
 </main>
 

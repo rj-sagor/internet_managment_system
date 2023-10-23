@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('service_cost')->nullable();
             $table->string('service_date')->nullable();
             $table->string('service_details')->nullable();
-            $table->string('status')->default('1');
+            $table->string('status')->default('unsolve');
             $table->timestamps();
         });
     }

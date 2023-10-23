@@ -60,7 +60,7 @@
                      <td>{{ $info->service_cost}}</td>
                      <td>{{ $info->service_date }}</td>
                      <td>{{ $info->service_details }}</td>
-                     <td>{{ $info->problem_to_status->status_name}}</td>
+                     <td>{{ $info->status}}</td>
                      <td>
                         <a href="{{ route('admin_Problem_list.edit',$info->id) }}"><i class="fas fa-edit"></i></a>
                         <a href="{{ route('service.details',$info->id) }}"><i class="fas fa-print"></i></a>

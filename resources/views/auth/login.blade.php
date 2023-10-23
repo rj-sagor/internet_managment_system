@@ -18,7 +18,7 @@
   <!-- loader-->
 	<link href="{{asset('backend/assets/css/pace.min.css" rel="stylesheet')}}" />
 
-    <title>{{ config('app.name', 'NHA') }}</title>
+    <title>{{ config('app.name', 'NHA ') }}</title>
 </head>
 
 <body>

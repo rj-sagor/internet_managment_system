@@ -56,7 +56,9 @@ class SetUpController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $all_depart=Department::find($id);
+        return view('SetUp.department_edit',compact('all_depart'));
+
     }
 
     /**
@@ -64,7 +66,12 @@ class SetUpController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        Department::find($id)->update($request->except('_token') + [
+
+            'updated_at'=>Carbon::now(),
+            ]);
+            return redirect()->route('SetUp.index')->with('success','Department Update successfully');
+
     }
 
     /**

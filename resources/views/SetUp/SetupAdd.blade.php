@@ -70,7 +70,7 @@
                     <td>{{ $loop->index +1 }}</td>
                     <td>{{ $info->department_name }}</td>
                     <td>{{ $info->department_id }}</td>
-                    <td>edit</td>
+                    <td><a href="{{ route('Setup.edit',$info->id) }}"><i class="fas fa-edit"></i></a></td>
 
                 </tr>
 

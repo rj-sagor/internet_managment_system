@@ -103,6 +103,19 @@
                         </div>
 
                         <div class="col-md-6">
+                            <label for="validationDefault02" class="form-label">Department</label>
+                            <select class="js-example-basic-single form-control" name="department_id" data-placeholder="Choose Department">
+                                <option label="Select Department"></option>
+                                @foreach($all_department as $department)
+                                <option value="{{$department->id}}">{{$department->department_name}}</option>
+                                @endforeach
+                              </select>
+                            @error('department_id')
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror
+                        </div>
+
+                        <div class="col-md-6">
                             <label for="validationDefault02" class="form-label">User Name</label>
                             <input type="text" class="form-control" id="name"  name="name">
                             @error('name')
@@ -116,24 +129,17 @@
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
                         </div>
-                        <div class="col-md-6">
-                            <label for="validationDefault02" class="form-label">Designation</label>
-                            <input type="text" class="form-control" id="designation"  name="designation_id">
-                            @error('designation_id')
-                            <small class="text-danger">{{ $message }}</small>
-                        @enderror
-                        </div>
-                        <div class="col-md-6">
-                            <label for="validationDefault02" class="form-label">Department</label>
-                            <input type="text" class="form-control" id="department"  name="department_id">
-                            @error('department_id')
-                            <small class="text-danger">{{ $message }}</small>
-                        @enderror
-                        </div>
+
                         <div class="col-md-6">
                             <label for="validationDefault02" class="form-label">User Room Number</label>
                             <input type="text" class="form-control" id="room_number" name="room_number" placeholder="">
                             @error('room_number')
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror
+                        </div>
+                        <div class="col-md-6">
+                            <input type="hidden" class="form-control" id="designation"  name="designation_id">
+                            @error('designation_id')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
                         </div>
@@ -166,7 +172,6 @@ $(document).ready(function() {
         const myJSON = JSON.parse(user);
         // alert(myJSON);
         document.getElementById("room_number").setAttribute('value', myJSON.room_number);
-        document.getElementById("department").setAttribute('value', myJSON.department_id);
         document.getElementById("designation").setAttribute('value', myJSON.designation_id);
         document.getElementById("user_id").setAttribute('value', myJSON.user_id);
         document.getElementById("name").setAttribute('value', myJSON.name);

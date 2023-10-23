@@ -20,7 +20,5 @@ class Problem extends Model
         return $this->belongsTo(Department::class,"department_id","id");
     }
 
-    public function problem_to_status(){
-        return $this->belongsTo(Status::class,"status","id");
-    }
+
 }
