@@ -10,6 +10,9 @@
             <h4 class="mb-0 text-uppercase">Printer List</h4>
         </div>
         <div>
+            <a class="btn btn-info" href="{{ route('printer.create') }}">add</a>
+         </div>
+
             <a class="btn btn-info" href=""><i class="fa-solid fa-print"></i> print</a>
          </div>
         <div class="d-flex justify-content-between ">

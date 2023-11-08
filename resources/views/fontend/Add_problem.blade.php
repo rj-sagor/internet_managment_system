@@ -138,11 +138,20 @@
                         @enderror
                         </div>
                         <div class="col-md-6">
+                            <label for="validationDefault02" class="form-label">Others</label>
+                            <input type="text" class="form-control" id="room_number" name="others" placeholder="">
+                            @error('others')
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror
+                        </div>
+                        <div class="col-md-6">
                             <input type="hidden" class="form-control" id="designation"  name="designation_id">
                             @error('designation_id')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
                         </div>
+
+
 
                         <div class="col-12">
                             <button class="btn btn-primary" type="submit">Save</button>

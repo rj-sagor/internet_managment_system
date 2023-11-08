@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\All_User;
 use App\Models\Scanner;
 use App\Models\Department;
+use App\Models\Category;
 use Carbon\Carbon;
 use PDF;
 
@@ -32,8 +33,9 @@ class scannerController extends Controller
      */
     public function create()
     {
-        $all_user=All_User::all();
-      return view('scanner.scanner_add',compact('all_user'));
+        $all_department=Department::all();
+        $all_category=Category::all();
+      return view('scanner.create',compact('all_department','all_category'));
     }
 
     /**

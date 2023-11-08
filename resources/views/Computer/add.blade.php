@@ -22,9 +22,9 @@
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
            {{-- <li> <a id="showall">All</a></li> --}}
-           <li> <a class="dropdown-item showSingle" target="1">Computer From</a></li>
-           <li><a class="dropdown-item  showSingle" target="2">Printer Form</a></li>
-           <li> <a class="dropdown-item showSingle" target="3">Scanner Form</a></li>
+           <li> <a class="dropdown-item showSingle" href="{{ route('computerinfo.create') }}">Computer From</a></li>
+           <li><a class="dropdown-item  showSingle" href="{{ route('printer.create') }}">Printer Form</a></li>
+           <li> <a class="dropdown-item showSingle" href="{{ route('scanner.create') }}">Scanner Form</a></li>
         </ul>
       </div>
 
@@ -203,7 +203,7 @@
 
                         </div>
                     </div>
-                    <div class="col-12">
+                    <div class="col-12 p-5 text-center mx-auto">
                         <button class="btn btn-primary" type="submit">Save</button>
                     </div>
 
@@ -215,71 +215,10 @@
 
       </div>
 
-      {{-- Printer form start --}}
-      <div id="div2" class="targetDiv">
-       <div class="text-center">
-        <h2>Printer Information Form</h2>
-       </div>
-      <div class="d-flex justify-content-center">
-     <form action="{{ route('printer.store') }}" method="POST">
-        @csrf
-        <div class="row ">
-            <div class="col-md-6 ms-4">
-                <label for="inputCity" class="form-label">Printer_id</label>
-                <input type="text" class="form-control" id="printer_id" name="printer_id" value="38" required>
-              </div>
-              <input type="hidden" class="form-control" id="printer_department_id" name="department_id" >
-              <input type="hidden" class="form-control" id="printer_type_id" name="type_id" required>
-              <div class="col-md-4 ms-4">
-                <label for="inputCity" class="form-label">Printer Brand</label>
-                <input type="text" class="form-control" id="brand" name="brand" required>
-              </div>
-              <div class="col-md-6 ms-4">
-                <label for="inputCity" class="form-label">Printer Model</label>
-                <input type="text" class="form-control" id="model" name="model" required>
-              </div>
-
-          </div>
-          <div class="col-12">
-            <button class="btn btn-primary" type="submit">Save</button>
-        </div>
-     </form>
-      </div>
-      </div>
 
 
-      {{-- scanner form start --}}
-      <div id="div3" class="targetDiv " >
-        <div class="text-center">
-         <h2>Scanner Information Form</h2>
-        </div>
-       <div class="d-flex justify-content-center">
-        <form action="{{ route('scanner.store') }}" method="POST">
-            @csrf
-         <div class="row ">
-             <div class="col-md-6 ms-4">
-                 <label for="inputCity" class="form-label">Scanner_id</label>
-                 <input type="text" class="form-control" id="scanner_id" name="scanner_id" value="38" required>
-               </div>
-              <input type="hidden" class="form-control" id="scanner_department_id" name="department_id"  >
-              <input type="hidden" class="form-control" id="scanner_type_id" name="type_id" >
 
-               <div class="col-md-4 ms-4">
-                 <label for="inputCity" class="form-label">Scanner Brand</label>
-                 <input type="text" class="form-control" id="" name="scanner_brand" required>
-               </div>
-               <div class="col-md-6 ms-4">
-                 <label for="inputCity" class="form-label">Scanner Model</label>
-                 <input type="text" class="form-control" id="inputCity" name="scanner_model" required>
-               </div>
 
-           </div>
-           <div class="col-12">
-            <button class="btn btn-primary" type="submit">Save</button>
-        </div>
-      </form>
-       </div>
-       </div>
 
     </main>
 
@@ -295,15 +234,7 @@
 
 <script>
 $(document).ready(function() {
-    jQuery(function() {
-  jQuery('#showall').click(function() {
-    jQuery('.targetDiv').show();
-  });
-  jQuery('.showSingle').click(function() {
-    jQuery('.targetDiv').hide();
-    jQuery('#div' + $(this).attr('target')).show();
-  });
-});
+
 
 $("#Department_id").change(function () {
     var department =  $("#Department_id").val();
@@ -322,42 +253,7 @@ $("#Department_id").change(function () {
 
     });
 
-    // printer section start
-    $("#Department_id").change(function () {
-    var department =  $("#Department_id").val();
-    const myJSON = JSON.parse( department);
-    var printer =  $("#printer_id").val();
-    document.getElementById("printer_id").setAttribute('value', printer.concat(myJSON.department_id));
-    document.getElementById("printer_department_id").setAttribute('value', myJSON.id );
-    });
 
-    $("#Category_id").change(function () {
-    var category =  $("#Category_id").val();
-    const myJSON = JSON.parse( category);
-    var printer =  $("#printer_id").val();
-    document.getElementById("printer_id").setAttribute('value', printer.concat(myJSON.category_id));
-    document.getElementById("printer_type_id").setAttribute('value', myJSON.id );
-
-    });
-    // printer section end
-    // scanner section start
-    $("#Department_id").change(function () {
-    var department =  $("#Department_id").val();
-    const myJSON = JSON.parse( department);
-    var scanner =  $("#scanner_id").val();
-    document.getElementById("scanner_id").setAttribute('value', scanner.concat(myJSON.department_id));
-    document.getElementById("scanner_department_id").setAttribute('value', myJSON.id );
-    });
-
-    $("#Category_id").change(function () {
-    var category =  $("#Category_id").val();
-    const myJSON = JSON.parse( category);
-    var scanner =  $("#scanner_id").val();
-    document.getElementById("scanner_id").setAttribute('value', scanner .concat(myJSON.category_id));
-    document.getElementById("scanner_type_id").setAttribute('value', myJSON.id );
-
-    });
-    // scanner section end
 
     $('.js-example-basic-single').select2();
 });

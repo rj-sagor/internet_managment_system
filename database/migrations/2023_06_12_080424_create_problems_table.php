@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('designation_id');
             $table->string('department_id');
             $table->string('room_number');
+            $table->string('others')->nullable();
             $table->string('problem_id');
             $table->string('problem_trucking_number');
             $table->string('service_cost')->nullable();

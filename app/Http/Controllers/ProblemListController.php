@@ -75,8 +75,8 @@ class ProblemListController extends Controller
         $all_department=Department::all();
         $all_designation=Designation::all();
         $problem_list=ProblemList::all();
-        $all_status=status::all();
-        return view('AdminProblem.problem_edit',compact('problem','all_department','all_designation','problem_list','all_status'));
+
+        return view('AdminProblem.problem_edit',compact('problem','all_department','all_designation','problem_list',));
     }
 
     /**

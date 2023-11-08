@@ -10,6 +10,9 @@
             <h4 class="mb-0 text-uppercase">Scanner List</h4>
         </div>
         <div>
+            <a class="btn btn-info" href="{{ route('scanner.create')}}"> add</a>
+         </div>
+        <div>
             <a class="btn btn-info" href="{{ route('scanner.all_information.print_pdf')}}"><i class="fa-solid fa-print"></i> print</a>
          </div>
         <div class="d-flex justify-content-between ">

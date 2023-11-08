@@ -120,8 +120,7 @@
                 </li>
                 <li> <a href="{{ route('setup_designation.index') }}"><i class="bi bi-arrow-right-short"></i>Designation</a>
                 </li>
-                <li> <a href="{{ route('setup_status.index') }}"><i class="bi bi-arrow-right-short"></i>Status</a>
-                </li>
+
                 <li> <a href="{{ route('setup_problem.index') }}"><i class="bi bi-arrow-right-short"></i>Problem List</a>
                 </li>
                 <li> <a href="{{ route('type.index') }}"><i class="bi bi-arrow-right-short"></i>category</a>

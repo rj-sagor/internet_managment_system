@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <style>
   table {
     border-collapse: collapse;
@@ -36,63 +37,80 @@
     <table border="1" style="width: 100%;">
         <tr>
             <td style="text-align: left;">User Name</td>
-            {{-- <td style="text-align: right;"> {{ $info->Info_to_user->name}}</td> --}}
+            <td style="text-align: right;">
+               {{ $info->name }}</td>
         </tr>
         <tr>
             <td style="text-align: left;">User Id</td>
-            {{-- <td style="text-align: right;">{{ $info->Info_to_user->user_id}}</td> --}}
+            <td style="text-align: right;">
+              {{ $info->user_id }}
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: left;">Trucking Number</td>
+            <td style="text-align: right;">
+              {{ $info->problem_trucking_number }}
+            </td>
+        </tr>
+        {{-- <tr>
+            <td style="text-align: left;">Department</td>
+            <td style="text-align: right;">{{ $info->Info_to_department->department_name}}</td>
+        </tr> --}}
+        <tr>
+            <td style="text-align: left;">Designation</td>
+            <td style="text-align: right;">{{ $info->problem_to_designation->designation_name}}</td>
+
+
         </tr>
         <tr>
             <td style="text-align: left;">Department</td>
-            {{-- <td style="text-align: right;">{{ $info->Info_to_department->department_name}}</td> --}}
+            <td style="text-align: right;">{{ $info->problem_to_department->department_name }}</td>
         </tr>
         <tr>
-            <td style="text-align: left;">Computer Id</td>
-            {{-- <td style="text-align: right;">{{ $info->computer_id}}</td> --}}
+            <td style="text-align: left;">Room Number</td>
+            <td style="text-align: right;">{{ $info->room_number }}</td>
+        </tr>
+        <tr>
+            <td style="text-align: left;">Problem</td>
+            <td style="text-align: right;">{{ $info->problem_to_problem->problem_name }}</td>
+        </tr>
+        <tr>
+            <td style="text-align: left;">Service Cost</td>
+            <td style="text-align: right;"> @if (!is_null($info->service_cost))
+                {{ $info->service_cost }}
+                @else
+                {{ "No servicing" }}
 
+                @endif</td>
+        </tr>
+        <tr>
+            <td style="text-align: left;">Service Date</td>
+            <td style="text-align: right;">@if (!is_null($info->service_date))
+                {{ $info->service_date }}
+                @else
+                {{ "No servicing Date" }}
 
+                @endif</td>
         </tr>
         <tr>
-            <td style="text-align: left;">Motherboard</td>
-            {{-- <td style="text-align: right;">{{ $info->mother_board }}</td> --}}
+            <td style="text-align: left;">Servicing Details</td>
+            <td style="text-align: right;">@if (!is_null($info->service_details))
+                {{ $info->service_details }}
+                @else
+                {{ "No Details available" }}
+
+                @endif</td>
         </tr>
+
         <tr>
-            <td style="text-align: left;">Proccesor</td>
-            {{-- <td style="text-align: right;">{{ $info->proccesor }}</td> --}}
-        </tr>
-        <tr>
-            <td style="text-align: left;">Ip_address</td>
-            {{-- <td style="text-align: right;">{{ $info->ip_address }}</td> --}}
-        </tr>
-        <tr>
-            <td style="text-align: left;">Monitor</td>
-            {{-- <td style="text-align: right;">{{ $info->monitor }}</td> --}}
-        </tr>
-        <tr>
-            <td style="text-align: left;">Tender Memo Number</td>
-            {{-- <td style="text-align: right;">{{ $info->tender_number }}</td> --}}
-        </tr>
-        <tr>
-            <td style="text-align: left;">Mac Address</td>
-            {{-- <td style="text-align: right;">{{ $info->mac_address }}</td> --}}
-        </tr>
-        <tr>
-            <td style="text-align: left;">Installation Date</td>
-            {{-- <td style="text-align: right;">{{ $info->installation_date }}</td> --}}
-        </tr>
-        <tr>
-            <td style="text-align: left;">Ram</td>
-            {{-- <td style="text-align: right;">{{ $info->ram }}</td> --}}
-        </tr>
-        <tr>
-            <td style="text-align: left;">HDD/SSD</td>
-            {{-- <td style="text-align: right;">{{ $info->hdd_ssd }}</td> --}}
+            <td style="text-align: left;">Status</td>
+            <td style="text-align: right;">{{ $info->status }}</td>
         </tr>
 
 
     </table>
     <div>
-        {{-- <p style="text-align: last;">{{ $date }}</p>k --}}
+        {{-- <p style="text-align: last;">{{ $date }}</p> --}}
     </div>
 
 </body>

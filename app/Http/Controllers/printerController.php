@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\All_User;
 use App\Models\Printer;
 use App\Models\Department;
+use App\Models\Category;
 use Carbon\Carbon;
 
 class printerController extends Controller
@@ -32,6 +33,9 @@ class printerController extends Controller
      */
     public function create()
     {
+        $all_department=Department::all();
+        $all_category=Category::all();
+        return view('printer.create',compact('all_department','all_category'));
 
     }
 

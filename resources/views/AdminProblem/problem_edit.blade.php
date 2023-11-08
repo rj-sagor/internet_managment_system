@@ -97,19 +97,6 @@
                         <small class="text-danger">{{ $message }}</small>
                     @enderror
                        </div>
-
-                       <div class="col-md-4">
-                        <label for="validationCustom01" class="form-label">Problem Name</label>
-                        <select  class="js-example-basic-single form-control" name="status"  data-placeholder="Chose your user">
-                            <option label="Select Department user"></option>
-                            @foreach($all_status as $status)
-                            <option value="{{$status->id}}"{{ $status->id ==$problem->status ? "selected" : "" }}>{{$status->status_name}}</option>
-                            @endforeach
-                          </select>
-                        @error('status')
-                        <small class="text-danger">{{ $message }}</small>
-                    @enderror
-                    </div>
                        <div class="col-md-4">
                         <label for="form-control" class="font-bold">Servicing Details</label>
                       <div>

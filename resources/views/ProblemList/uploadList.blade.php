@@ -66,7 +66,7 @@
                 <tr>
                     <td>{{ $loop->index +1 }}</td>
                     <td>{{ $info->problem_name }}</td>
-                    <td>edit</td>
+                    <td><a href="{{ route('setup_problem.edit',$info->id) }}"> <i class="fas fa-edit"></i></a></td>
 
                 </tr>
 

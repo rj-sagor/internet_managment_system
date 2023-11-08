@@ -56,7 +56,9 @@ class problemsetController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $set_problem=ProblemList::find($id);
+        return view('ProblemList.edit',compact('set_problem'));
+
     }
 
     /**
@@ -64,7 +66,12 @@ class problemsetController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        ProblemList::find($id)->update($request->except('_token') + [
+
+            'updated_at'=>Carbon::now(),
+            ]);
+            return redirect()->route('setup_problem.index')->with('success','Problem List Info update successfully');
+
     }
 
     /**
