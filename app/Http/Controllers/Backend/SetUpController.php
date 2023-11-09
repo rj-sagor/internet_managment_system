@@ -70,7 +70,7 @@ class SetUpController extends Controller
 
             'updated_at'=>Carbon::now(),
             ]);
-            return redirect()->route('SetUp.index')->with('success','Department Update successfully');
+            return redirect()->route('Setup.index')->with('success','Department Update successfully');
 
     }
 

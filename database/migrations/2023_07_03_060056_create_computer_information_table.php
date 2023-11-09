@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('department_id');
             $table->string('type_id')->nullable();
-            $table->string('user_id')->default("null");
+            $table->string('user_id')->nullable();
             $table->string('computer_id');
             $table->string('monitor');
             $table->string('mother_board');

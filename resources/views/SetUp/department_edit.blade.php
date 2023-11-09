@@ -25,6 +25,14 @@
                         @enderror
                         </div>
 
+                        <div class="col-md-4 mx-auto">
+                            <label for="validationCustom01" class="form-label">Department Id</label>
+                            <input type="text" class="form-control" id="validationCustom01" name="department_id" value="{{ $all_depart->department_id }}" >
+                            @error('department_id')
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror
+                        </div>
+
                 </div>
                <div class="d-flex justify-content-center mt-5 ">
                 <button type="submit" class="btn btn-primary ">update</button>

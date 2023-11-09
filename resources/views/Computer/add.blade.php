@@ -94,7 +94,7 @@
 
                             <div class="col-md-4">
                                 <label for="validationCustom01" class="form-label">Computer Id</label>
-                                <input type="text" class="form-control" id="Computer_id" name="computer_id" value="38" >
+                                <input type="text" class="form-control" id="Computer_id" name="computer_id" value="৩৮" >
                                 @error('monitor')
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
