@@ -7,6 +7,7 @@ use App\Models\All_User;
 use App\Models\Printer;
 use App\Models\Scanner;
 use App\Models\Problem;
+use App\Models\ComputerInformation;
 
 
 class HomeController extends Controller
@@ -38,7 +39,7 @@ class HomeController extends Controller
         //     $count++;
         // }
 
-        $user=All_User::count();
+        $user=ComputerInformation::count();
         return view('home',compact('user','all_printer','all_scanner','all_problem'));
     }
 }

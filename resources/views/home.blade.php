@@ -11,7 +11,7 @@
                   <div>
                       <p class="mb-0 text-secondary">Total Computer</p>
                   </div>
-                  <div class="widget-icon-large bg-gradient-purple text-white mt-3 text-aligne-center"><i class="bi bi-basket2-fill"> {{ $user }}</i>
+                  <div class="widget-icon-large bg-gradient-purple text-white mt-3 text-aligne-center"><a class="text-white" href="{{ route('computerinfo.index') }}"><i class="bi bi-basket2-fill"> {{ $user }}</i></a>
                   </div>
 
 
