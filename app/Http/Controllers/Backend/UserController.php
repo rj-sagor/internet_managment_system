@@ -45,9 +45,7 @@ class UserController extends Controller
             'user_id'=>'required|unique:all__users,user_id',
             'name'=>'required',
             'designation_id'=>'required',
-            'room_number'=>'required',
-            'mobile_number'=>'required',
-            'email'=>'required|unique:all__users,email',
+
         ]);
 
         All_User::insert($request->except('_token') + [

@@ -16,9 +16,9 @@ return new class extends Migration
             $table->string('user_id');
             $table->string('name');
             $table->string('designation_id');
-            $table->string('room_number');
-            $table->string('mobile_number');
-            $table->string('email');
+            $table->string('room_number')->nullable();
+            $table->string('mobile_number')->nullable();
+            $table->string('email')->nullable();
             $table->timestamps();
         });
     }

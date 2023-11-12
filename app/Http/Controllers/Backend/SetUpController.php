@@ -36,7 +36,7 @@ class SetUpController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'department_name'=>'unique:departments,department_name',
+            'department_id'=>'unique:departments,department_id,except,id',
 
         ]);
         Department::insert($request->except('_token') + [
