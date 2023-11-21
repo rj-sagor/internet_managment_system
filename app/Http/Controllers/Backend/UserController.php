@@ -69,7 +69,10 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $all_user=All_User::find($id);
+        $All_desig=designation::All();
+
+        return view('Admin_Upload.user_info.user_edit',compact('all_user','All_desig'));
     }
 
     /**
@@ -77,7 +80,13 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        All_User::find($id)->update($request->except('_token') + [
+
+            'updated_at'=>Carbon::now(),
+            ]);
+            return redirect()->route('UserUpoload.index')->with('success','User uploaded successfully');
+
+
     }
 
     /**

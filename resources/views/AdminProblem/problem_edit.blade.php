@@ -97,6 +97,20 @@
                         <small class="text-danger">{{ $message }}</small>
                     @enderror
                        </div>
+
+
+                       <div class="col-md-4">
+                        <label for="validationCustom01" class="form-label">Status</label>
+                       <select class="form-select form-select-lg mb-3" name="status" aria-label="Large select example">
+                        <option selected>{{ $problem->status }}</option>
+                        <option value="unsolve">Unsolve</option>
+                        <option value="solve">Solve</option>
+                        <option value="running">Running</option>
+                      </select>
+                       </div>
+
+
+
                        <div class="col-md-4">
                         <label for="form-control" class="font-bold">Servicing Details</label>
                       <div>

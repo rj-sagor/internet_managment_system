@@ -5,6 +5,7 @@
     <!--breadcrumb-->
     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
     </div>
+    <div>
     <div class="d-flex justify-content-between m-4">
         <div>
             <h4 class="mb-0 text-uppercase">Printer List</h4>

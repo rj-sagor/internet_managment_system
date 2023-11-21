@@ -31,7 +31,7 @@
              <td>{{ $info->name }}</td>
              <td>{{ $info->user_id }}</td>
              <td>{{ $info->user_to_designation->designation_name }}</td>
-             <td>edit</td>
+             <td><a href="{{ route('UserUpoload.edit',$info->id) }}"><i class="fas fa-edit"></i></a></td>
 
          </tr>
 
@@ -40,17 +40,7 @@
          @endforelse
 
         </tbody>
-        <tfoot>
 
-            <tr>
-                <th>Sl</th>
-                <th>User Name</th>
-                <th>E-Nothi Id</th>
-                <th>Designation</th>
-                <th>action</th>
-
-            </tr>
-        </tfoot>
     </table>
 </main>
 @endsection

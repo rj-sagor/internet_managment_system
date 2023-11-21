@@ -51,16 +51,12 @@
             {{ $data->Info_to_user->user_id }}
 
             @else
-            {{ "No User Exit" }}
+            {{ "No User exist" }}
             @endif
     </td>
     <td>
-        @if (!is_null($data->Info_to_department))
-        {{ $data->Info_to_department->department_name }} <br>
-        @else
-        {{ "No User Exit" }}
 
-        @endif
+       {{ $data->scanner_to_department->department_name }}
 </td>
   </tr>
   @endforeach

@@ -41,7 +41,7 @@
                 @if (!is_null($info->Info_to_user))
                 {{ $info->Info_to_user->name }}
                 @else
-                {{ "No User Exit" }}
+                {{ "No User Exist" }}
 
                 @endif</td>
         </tr>
@@ -51,7 +51,7 @@
                 @if (!is_null($info->Info_to_user))
                 {{ $info->Info_to_user->user_id }}
                 @else
-                {{ "No User Exit" }}
+                {{ "No User Exist" }}
 
                 @endif</td>
             </td>
