@@ -52,6 +52,7 @@ Route::get('all/information/pdf', [Computer_infoController::class, 'All_informat
 Route::resource('service', ServiceController::class);
 Route::resource('setup_designation', designationController::class);
 Route::resource('setup_status', statusController::class);
+Route::resource('setup_status', statusController::class);
 Route::resource('setup_problem', problemsetController::class);
 Route::resource('type', typeController::class);
 
@@ -60,7 +61,7 @@ Route::get('all/scanner_info/pdf/', [scannerController::class, 'scanner_pdf'])->
 Route::get('all/scanner_info_department/pdf/{department_id}', [scannerController::class, 'scanner_department_pdf'])->name('scanner.department.print_pdf');
 Route::get('computer_single_data/{id}', [Computer_infoController::class, 'singleData'])->name('single_data_pdf');
 Route::get('servicing_details/{id}', [ProblemListController::class, 'service'])->name('service.details');
-Route::get('employee', [ProblemListController::class,'other'])->name('employee.index');
+Route::get('all/printer_information', [printerController::class,'printer_pdf'])->name('printer.all_information');
 
 
 

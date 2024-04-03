@@ -14,7 +14,7 @@
             <a class="btn btn-info" href="{{ route('printer.create') }}">add</a>
          </div>
 
-            <a class="btn btn-info" href=""><i class="fa-solid fa-print"></i> print</a>
+            <a class="btn btn-info" href="{{ route('printer.all_information') }}"><i class="fa-solid fa-print"></i> print</a>
          </div>
         <div class="d-flex justify-content-between ">
             <div>
